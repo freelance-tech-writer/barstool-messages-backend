@@ -1,0 +1,16 @@
+{
+    "name": "barstool-messages-backend",
+    "version": "1.0.0",
+    "main": "server.js",
+    "repository": "git@tech.github.com:freelance-tech-writer/barstool-messages-backend.git",
+    "author": "Independent Tech Writers <freelance-tech-writer@union.io>",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "express": "^4.15.4",
+        "mysql": "^2.14.1"
+    },
+    "scripts": {
+        "start": "node ./server.js"
+    }
+}
