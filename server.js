@@ -32,6 +32,13 @@ app.get('/', (req, res) => {
 	res.send('<html><body><p>Guten tag, world!</p></body></html>');
 });
 
+// Enable CORS headers
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
+
 // Run it
 http.createServer(app)
 	.listen(app.get('port'), () => {
