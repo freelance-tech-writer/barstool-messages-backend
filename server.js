@@ -5,14 +5,14 @@ const parser = require('body-parser');
 
 // MySQL connection
 const connection = mysql.createConnection({
-	database: 'node_shop',
-	host: 'localhost',
-	password: 'root',
-	user: 'root'
+	database: 'fullstack_quiz',
+	host: 'mysqlforlambdatest.cxhveid9j7k2.us-east-1.rds.amazonaws.com',
+	password: 'doM9+sFo@eRBzgFzJDTP',
+	user: 'fullstack_quizie'
 });
 
 try {
-	/* connection.connect(); */
+	connection.connect();
 } catch (err) {
 	console.log('Database connection failed:' + err);
 }
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 app.get('/messages', (req, res) => {
 
 	// MySQL query
-	/* connection.query('SELECT * from messages where 1 = 1', function(err, rows, fields) {
+	connection.query('SELECT * from monsters where 1 = 1', function(err, rows, fields) {
 		if (!err) {
 			const response = [];
 
@@ -53,12 +53,16 @@ app.get('/messages', (req, res) => {
 				response.push({'result' : 'error', 'msg' : 'No Results Found'});
 			}
 
+			console.log(response);
+
 			res.setHeader('Content-Type', 'application/json');
 			res.status(200).send(JSON.stringify(response));
 		} else {
+			console.log(err);
+
 			res.status(400).send(err);
 		}
-	}); */
+	});
 
 	// Dummy data
 	// TODO: Remove this!
@@ -112,8 +116,8 @@ app.get('/messages', (req, res) => {
 		links: {}
 	};
 
-	res.setHeader('Content-Type', 'application/json');
-	res.status(200).send(JSON.stringify(response));
+	/* res.setHeader('Content-Type', 'application/json');
+	res.status(200).send(JSON.stringify(response)); */
 });
 
 // Run it
