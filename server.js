@@ -39,12 +39,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-// Run it
-http.createServer(app)
-	.listen(app.get('port'), () => {
-		console.log('Server listening on port ' + app.get('port'));
-	});
-
 // Messages path
 app.get('/messages', (req, res) => {
 
@@ -120,5 +114,12 @@ app.get('/messages', (req, res) => {
 
 	res.setHeader('Content-Type', 'application/json');
 	res.status(200).send(JSON.stringify(response));
-
 });
+
+// Run it
+let server = http.createServer(app)
+	.listen(app.get('port'), () => {
+		console.log('Server listening on port ' + app.get('port'));
+	});
+
+module.exports = server;
